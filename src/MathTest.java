@@ -1,4 +1,9 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class MathTest {
     @ParameterizedTest
     @CsvSource({
@@ -33,7 +38,8 @@ public class MathTest {
     })
     public void testReciprocal(double base, double exponent) {
 
-        x-a = 1/xa
+        //x-a = 1/xa;
+
 
 
     }
@@ -55,7 +61,8 @@ public class MathTest {
             "-7.4, -8.3, -9.2"
     })
     public void testMultiplying(double base, double a, double b) {
-        xa * xb = xa+b
+        //xa * xb = xa+b;
+        assertEquals(Math.pow(base,a+b),Math.pow(base,a)*Math.pow(base,b),"x to the power of a time x power of be is equal to x to the power of a + b");
     }
 
 
@@ -75,7 +82,7 @@ public class MathTest {
             "-7.4, -8.3, -9.2"
     })
     public void testDividing(double base, double a, double b) {
-        xa / xb = xa-b
+        //xa / xb = xa-b;
     }
 
 
@@ -95,28 +102,31 @@ public class MathTest {
             "-7.4, -8.3, -9.2"
     })
     public void testNestedPowers(double base, double a, double b) {
-        (xa)b = xa*b
+       //(xa)b = xa*b;
+        assertEquals(Math.pow(base, a)*b,Math.pow(base,a * b),"x to the power of a times b should equal x to the power of a*b");
     }
 
 
     @ParameterizedTest
     @ValueSource(doubles = {1, 5.0, 3.7, -1, -4.0, -4.9})
     public void testZeroPower(double base) {
-        x0 = 1
+        //x0 = 1;
+        assertEquals(1.0, Math.pow(base,0.0),"Any number to power of zero is one");
     }
 
 
     @ParameterizedTest
     @ValueSource(doubles = {1, 5.0, 3.7, -1, -4.0, -4.9})
     public void testOnePower(double base) {
-        x1 = x
+       // x1 = x;
     }
 
 
     @ParameterizedTest
     @ValueSource(doubles = {1, 5.0, 3.7, -1, -4.0, -4.9})
     public void testZeroBase(double exponent) {
-        0x = 0
+        //0x = 0;
+        assertEquals(0,Math.pow(0,exponent), "Zero to the power of any number is 0");
     }
 
 }
